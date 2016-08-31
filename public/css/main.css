@@ -9,6 +9,8 @@ body{
 }
 p{line-height: 18px;padding: 2px;}
 #content {
+  margin-left: 20px;
+  width: 500px;
   padding:5px;
   background:#ddd;
   border-radius:5px;
@@ -21,13 +23,16 @@ p{line-height: 18px;padding: 2px;}
   border:1px solid #ccc;
   margin-top:10px;
   padding:5px;
+  width: 390px;
 }
 #status {
+  margin-left: 20px;
   width:100px;
   display:block;
   float:left;
   margin-top:15px;
 }
 #myCanvas{
-  
+  cursor:url("../img/pan.png"),pointer;
+  background: #fff;
 }

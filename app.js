@@ -24,7 +24,6 @@ io.on('connection',function(socket){
     name:false,
     color:getColor()
   }
-
   //对message事件的监听
   socket.on('message',function(msg){
     var obj={time:getTime(), color:client.color};
