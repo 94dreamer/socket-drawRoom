@@ -1,0 +1,33 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+body{
+  font-family:"微软雅黑",'sans-serif';
+  font-size: 12px;
+  margin: 10px;
+}
+p{line-height: 18px;padding: 2px;}
+#content {
+  padding:5px;
+  background:#ddd;
+  border-radius:5px;
+  border:1px solid #CCC;
+  height: 400px;
+  overflow-y: auto;
+}
+#enterInput {
+  border-radius:2px;
+  border:1px solid #ccc;
+  margin-top:10px;
+  padding:5px;
+}
+#status {
+  width:100px;
+  display:block;
+  float:left;
+  margin-top:15px;
+}
+#myCanvas{
+  
+}

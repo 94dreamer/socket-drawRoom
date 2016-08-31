@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Socket.io-你画我猜</title>
+  <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="//cdn.bootcss.com/jquery/1.12.3/jquery.slim.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/chat.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <h1 class="col-lg-12">你画我猜</h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-7">
+      <canvas id="myCanvas" width="600" height="400" style="border: 1px solid #bbbbbb;"></canvas>
+    </div>
+    <div class="col-lg-5">
+      <div id="content"></div>
+      <span id="status">Connecting...</span>
+      <input type="text" id="enterInput"/>
+    </div>
+  </div>
+</div>
+</body>
+</html>
