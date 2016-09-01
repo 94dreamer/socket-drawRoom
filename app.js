@@ -42,10 +42,13 @@ io.on('connection',function(socket){
       socket.broadcast.emit('system',obj);
     }else{
       //如果不是第一次的连接，正常的聊天消息
-      obj['text']=msg;
+      if(typeof msg ==="object"){
+        obj['draw']=msg
+      }
+      obj['text']=null;
       obj['author']=client.name;
       obj['type']='message';
-      console.log(client.name+'say:'+msg)
+      console.log(client.name+'say:'+msg);
 
       //返回消息(可以忽略)
       socket.emit('message',obj);

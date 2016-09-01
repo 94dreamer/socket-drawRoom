@@ -9,7 +9,7 @@
 
   function socketInit() {
     //建立websocket连接
-    socket = io.connect('http://10.207.9.194:3000');
+    socket = io.connect('http://10.207.9.206:3000');
     //收到seerver的连接确认
     socket.on('open', function () {
       status.text('选择你的名字:')
@@ -30,11 +30,24 @@
       content.prepend(p)
     });
 
-    //监听message时间，打印消息信息
+    //监听message事件，打印消息信息
     socket.on('message', function (json) {
-      var p = '<p><span style="color: ' + json.color + ';">' + json.author + '</span> @' + json.time + ':' + json.text + '</p>';
-      content.prepend(p);
-    })
+      if (json.draw) {
+        if (json.author === myName) {
+          return false
+        } else {
+          ctx.strokeStyle = json.draw.panColor;
+          ctx.strokeWidth=json.draw.panRaduis;
+          for (var i = 0; i < json.draw.points.length; i++) {
+            i === 0 ? ctx.moveTo(json.draw.points[i].x, json.draw.points[i].y) : ctx.lineTo(json.draw.points[i].x, json.draw.points[i].y);
+          }
+          ctx.stroke();
+        }
+      } else {
+        var p = '<p><span style="color: ' + json.color + ';">' + json.author + '</span> @' + json.time + ':' + json.text + '</p>';
+        content.prepend(p);
+      }
+    });
 
     //通过回车提交聊天信息
     input.keydown(function (e) {
@@ -49,7 +62,7 @@
           myName = msg;
         }
       }
-    })
+    });
   }
 
   socketInit();
@@ -60,30 +73,33 @@
   var panRaduis = 2;
   var c = document.getElementById("myCanvas");
   var ctx = c.getContext("2d");
-
+  var drawInit = false;
   $("#myCanvas").on("mousedown", function (e) {
+    ctx.strokeStyle = panColor;
+    ctx.strokeWidth = panRaduis;
+    ctx.moveTo(e.offsetX, e.offsetY);
     points = [];
     recordPoint(e);//当前记录一次
+    drawInit = true;
     $(this).on("mousemove", recordPoint);
   }).on("mouseup", stopDraw).on("mouseleave", stopDraw);
 
   function stopDraw() {
-    $("#myCanvas").off("mousemove", recordPoint);
-    ctx.strokeStyle = "red";
-    ctx.fillStyle = panColor;
-    //ctx.beginPath();
-    //ctx.arc(event.offsetX,event.offsetY,panRaduis,0,2*Math.PI);
-    //ctx.stroke();
-    //ctx.fill();
-    for (var i = 0; i < points.length; i++) {
-      i === 0 ? ctx.moveTo(points[i].x, points[i].y) : ctx.lineTo(points[i].x, points[i].y);
+    if (!drawInit) {
+      return
     }
-    ctx.stroke();
-    console.log();
+    drawInit = false;
+    $("#myCanvas").off("mousemove", recordPoint);
+    points.length && socket.send({
+      points:points,
+      panColor:panColor,
+      panRaduis:panRaduis
+    });//发送坐标点
   }
 
-  //跟随鼠标移动
-  function recordPoint(e) {
+  function recordPoint(e) {//跟随鼠标移动
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.stroke();
     points.push({x: e.offsetX, y: e.offsetY});
   }
 
