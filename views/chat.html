@@ -3,24 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <title>Socket.io-你画我猜</title>
-  <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
-  <script src="//cdn.bootcss.com/jquery/1.12.3/jquery.slim.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/2.0.0/jquery.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="js/chat.js"></script>
 </head>
 <body>
-<div class="container-fluid">
-  <div class="row">
-    <h1 class="col-lg-12 text-center">你画我猜</h1>
-  </div>
-  <div class="row">
-    <div class="col-lg-12">
-      <canvas class="pull-left" id="myCanvas" width="600" height="400" style="border: 1px solid #bbbbbb;"></canvas>
-      <div class="pull-left">
+<div class="container">
+  <header>
+    <h1 class="">你画我猜</h1>
+  </header>
+  <div class="content-box">
+    <section class="cont-left">
+      <div class="title-box">
+        <div class="master-pic"><img src="" alt=""></div>
+        <div class="game-detail">
+          <h4>第<span id="game-num">1</span>轮</h4>
+          <p>题目是：<span id="game-title">令牌</span></p>
+        </div>
+        <div class="time-count">
+          <span>60</span>
+        </div>
+      </div>
+      <div class="canvas-box">
+        <canvas id="myCanvas" width="460" height="320" style="background: #ffffff"></canvas>
+      </div>
+      <ul class="join-box">
+        <li class=user-detail">
+          <h4></h4>
+          <img src="" alt="" style="display:block;width: 100%;">
+          <p></p>
+        </li>
+        <li class=user-detail">
+          <h4></h4>
+          <img src="" alt="" style="display:block;width: 100%;">
+          <p></p>
+        </li>
+        <li class=user-detail">
+          <h4></h4>
+          <img src="" alt="" style="display:block;width: 100%;">
+          <p></p>
+        </li>
+        <li class=user-detail">
+          <h4></h4>
+          <img src="" alt="" style="display:block;width: 100%;">
+          <p></p>
+        </li>
+      </ul>
+    </section>
+    <aside class="cont-right">
+      <div class="tool-box">
+        <div class="pan-color-block">
+          <ul>
+            <li class="" data-color="#000000" style="background: #000000"><span></span></li>
+            <li class="" data-color="#909090" style="background: #909090"><span></span></li>
+            <li class="" data-color="#f0f0f0" style="background: #f0f0f0"><span></span></li>
+            <li class="" data-color="#db0d11" style="background: #db0d11"><span></span></li>
+            <li class="" data-color="#f7921c" style="background: #f7921c"><span></span></li>
+            <li class="" data-color="#f0ef01" style="background: #f0ef01"><span></span></li>
+            <li class="" data-color="#35cc05" style="background: #35cc05"><span></span></li>
+            <li class="" data-color="#1ba7e4" style="background: #1ba7e4"><span></span></li>
+            <li class="" data-color="#0000fe" style="background: #0000fe"><span></span></li>
+            <li class="" data-color="#fe80d2" style="background: #fe80d2"><span></span></li>
+            <li class="" data-color="#652d90" style="background: #652d90"><span></span></li>
+            <li class="" data-color="#d9ac83" style="background: #d9ac83"><span></span></li>
+            <li class="" data-color="#5f3713" style="background: #5f3713"><span></span></li>
+            <li class="" data-color="#b0cb00" style="background: #b0cb00"><span></span></li>
+          </ul>
+        </div>
+        <div class="pan-width-block">
+          <ul>
+            <li data-width="2"><span></span></li>
+            <li data-width="4"><span></span></li>
+            <li data-width="6"><span></span></li>
+            <li data-width="8"><span></span></li>
+          </ul>
+        </div>
+        <div class="pan-type-block">
+          <ul>
+            <li data-type="pan"><span></span></li>
+            <li data-type="rubber"><span></span></li>
+            <li data-type="empty"><span></span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="chat-box">
         <div id="content"></div>
         <span id="status">Connecting...</span>
         <input type="text" id="enterInput"/>
+      </div>
+    </aside>
+  </div>
+  <div class="choose-box">
+    <div class="row">
+      <div class="">
+        <a class="thumbnail">
+          <img alt="1" src="img/1.jpg" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+        </a>
+      </div>
+      <div class="">
+        <a class="thumbnail">
+          <img alt="2" src="img/2.jpg" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+        </a>
+      </div>
+      <div class="">
+        <a class="thumbnail">
+          <img alt="3" src="img/3.jpg" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+        </a>
+      </div>
+      <div class="">
+        <a class="thumbnail">
+          <img alt="4" src="img/4.jpg" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+        </a>
       </div>
     </div>
   </div>

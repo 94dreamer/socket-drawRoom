@@ -12,7 +12,11 @@
     socket = io.connect('http://10.207.9.206:3000');
     //收到seerver的连接确认
     socket.on('open', function () {
-      status.text('选择你的名字:')
+      status.text('选择你的名字:');
+      $(".choose-box").on("dblclick","a.thumbnail", function () {
+        $(".choose-box").fadeOut("fast");
+        return false;
+      });
     })
 
     //监听system事件，判断不能welcome或者disconnect，打印系统消息信息
@@ -37,7 +41,7 @@
           return false
         } else {
           ctx.strokeStyle = json.draw.panColor;
-          ctx.strokeWidth=json.draw.panRaduis;
+          ctx.strokeWidth = json.draw.panRaduis;
           for (var i = 0; i < json.draw.points.length; i++) {
             i === 0 ? ctx.moveTo(json.draw.points[i].x, json.draw.points[i].y) : ctx.lineTo(json.draw.points[i].x, json.draw.points[i].y);
           }
@@ -91,9 +95,9 @@
     drawInit = false;
     $("#myCanvas").off("mousemove", recordPoint);
     points.length && socket.send({
-      points:points,
-      panColor:panColor,
-      panRaduis:panRaduis
+      points: points,
+      panColor: panColor,
+      panRaduis: panRaduis
     });//发送坐标点
   }
 

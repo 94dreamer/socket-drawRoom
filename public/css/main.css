@@ -7,11 +7,52 @@ body{
   font-size: 12px;
   margin: 10px;
 }
-p{line-height: 18px;padding: 2px;}
+ol,ul,li{
+  list-style: none;
+}
+.container{
+  position: relative;
+  background:#fedfcb;
+  overflow: hidden;
+  width: 900px;
+}
+header{
+  text-align: center;
+}
+.content-box{
+  width: 100%;
+  overflow: hidden;
+  background: #ffcb06;
+}
+.cont-left{
+  width: 556px;
+  float: left;
+  padding: 10px;
+}
+.title-box{
+  height: 80px;
+}
+.canvas-box{
+  width: 556px;
+  height: 414px;
+  background: #fff url("../img/back.png");
+  position: relative;
+}
+#myCanvas{
+  position: absolute;
+  top: 47px;
+  left: 49px;
+  cursor:url("../img/pan.png"),pointer;
+  background: #fff;
+}
+.cont-right{
+  width: 300px;
+  float: left;
+  padding-top: 80px;
+}
+
 #content {
-  margin-left: 20px;
-  width: 500px;
-  padding:5px;
+  width: 300px;
   background:#ddd;
   border-radius:5px;
   border:1px solid #CCC;
@@ -23,7 +64,7 @@ p{line-height: 18px;padding: 2px;}
   border:1px solid #ccc;
   margin-top:10px;
   padding:5px;
-  width: 390px;
+  width: 190px;
 }
 #status {
   margin-left: 20px;
@@ -32,7 +73,36 @@ p{line-height: 18px;padding: 2px;}
   float:left;
   margin-top:15px;
 }
-#myCanvas{
-  cursor:url("../img/pan.png"),pointer;
-  background: #fff;
+.choose-box{
+  /*display: none;*/
+  background: rgba(154,94,77,0.9);
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+.choose-box .row{
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 100px;
+  margin: auto;
+  width:800px;
+  height: 210px;
+  padding-top: 10px;
+  background: #f0dedc;
+}
+.choose-box .row>div{
+  float: left;
+  width: 200px;
+  height: 210px;
+}
+.choose-box .thumbnail{
+  cursor: pointer;
+  display: block;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border .2s ease-in-out;
 }
