@@ -44,8 +44,9 @@ io.on('connection',function(socket){
       //如果不是第一次的连接，正常的聊天消息
       if(typeof msg ==="object"){
         obj['draw']=msg
+      }else{
+        obj['text']=msg;
       }
-      obj['text']=null;
       obj['author']=client.name;
       obj['type']='message';
       console.log(client.name+'say:'+msg);
@@ -94,7 +95,6 @@ app.configure('development',function(){
 app.get('/',function(req,res){
   res.sendfile('views/chat.html');
 });
-
 server.listen(app.get('port'),function(){
   console.log("Express server listening on port" +app.get('port'));
 });

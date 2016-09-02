@@ -1,104 +1,194 @@
-*{
+* {
   padding: 0px;
   margin: 0px;
 }
-body{
-  font-family:"微软雅黑",'sans-serif';
+
+body {
+  font-family: "微软雅黑", 'sans-serif';
   font-size: 12px;
   margin: 10px;
 }
-ol,ul,li{
+
+ol, ul, li {
   list-style: none;
 }
-.container{
+
+.container {
   position: relative;
-  background:#fedfcb;
+  background: #fedfcb;
   overflow: hidden;
   width: 900px;
 }
-header{
+
+header {
   text-align: center;
 }
-.content-box{
+
+.content-box {
   width: 100%;
   overflow: hidden;
   background: #ffcb06;
 }
-.cont-left{
+
+.cont-left {
   width: 556px;
   float: left;
   padding: 10px;
 }
-.title-box{
+
+.title-box {
   height: 80px;
 }
-.canvas-box{
+
+.canvas-box {
   width: 556px;
   height: 414px;
   background: #fff url("../img/back.png");
   position: relative;
 }
-#myCanvas{
+
+#myCanvas {
   position: absolute;
   top: 47px;
   left: 49px;
-  cursor:url("../img/pan.png"),pointer;
+  cursor: url("../img/pan.png"), pointer;
   background: #fff;
 }
-.cont-right{
+
+.join-box {
+  overflow: hidden;
+  width: 100%;
+}
+
+.join-box li {
+  float: left;
+  width: 100px;
+}
+
+.join-box img {
+  width: 100px;
+  height: 100px;
+}
+
+.cont-right {
   width: 300px;
   float: left;
   padding-top: 80px;
 }
 
-#content {
-  width: 300px;
-  background:#ddd;
-  border-radius:5px;
-  border:1px solid #CCC;
-  height: 400px;
-  overflow-y: auto;
+.pan-color-block ul,.pan-width-block ul,.pan-type-block ul{
+  overflow: hidden;
 }
+
+.pan-color-block li {
+  float: left;
+  width: 40px;
+  height: 40px;
+}
+.pan-color-block li.current,.pan-width-block li.current,.pan-type-block li.current{
+  width: 38px;
+  height: 38px;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.pan-width-block li {
+  float: left;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.pan-width-block li span {
+  border-radius: 50%;
+  background: #000;
+  display: block;
+  position: absolute;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+}
+
+.pan-type-block li {
+  float: left;
+  width: 40px;
+  height: 40px;
+}
+
+.pan-type-block li span {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pan-type-block li.pan span{
+  background: url("../img/pan.png") center no-repeat;
+}
+
+.pan-type-block li.rubber span{
+  background: url("../img/rubber.png") center no-repeat;
+}
+
+.pan-type-block li.empty span{
+  background: url("../img/empty.png") center no-repeat;
+}
+.chat-box{
+  background: #fff;
+  padding: 10px 0px 20px;
+  overflow: hidden;
+}
+#content {
+  width: 320px;
+  background: #ddd;
+  border-top: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  height: 200px;
+  overflow-y: scroll;
+}
+
 #enterInput {
-  border-radius:2px;
-  border:1px solid #ccc;
-  margin-top:10px;
-  padding:5px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  padding: 5px;
   width: 190px;
 }
+
 #status {
-  margin-left: 20px;
-  width:100px;
-  display:block;
-  float:left;
-  margin-top:15px;
+  margin-left: 10px;
 }
-.choose-box{
+
+.choose-box {
   /*display: none;*/
-  background: rgba(154,94,77,0.9);
+  background: rgba(154, 94, 77, 0.9);
   position: absolute;
   left: 0px;
   top: 0px;
   width: 100%;
   height: 100%;
 }
-.choose-box .row{
+
+.choose-box .row {
   position: absolute;
   left: 0px;
   right: 0px;
   top: 100px;
   margin: auto;
-  width:800px;
+  width: 800px;
   height: 210px;
   padding-top: 10px;
   background: #f0dedc;
 }
-.choose-box .row>div{
+
+.choose-box .row > div {
   float: left;
   width: 200px;
   height: 210px;
 }
-.choose-box .thumbnail{
+
+.choose-box .thumbnail {
   cursor: pointer;
   display: block;
   background-color: #fff;

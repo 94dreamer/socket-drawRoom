@@ -1,0 +1,21 @@
+{
+  "user": [
+    {
+      "src":"img/1.jpg",
+      "alt":"欢欢",
+      "index":0
+    },{
+      "src":"img/1.jpg",
+      "alt":"小老虎",
+      "index":1
+    },{
+      "src":"img/1.jpg",
+      "alt":"蛟虎兽",
+      "index":2
+    },{
+      "src":"img/4.jpg",
+      "alt":"梦想家",
+      "index":3
+    }
+  ]
+}
